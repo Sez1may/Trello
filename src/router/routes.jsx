@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import SignIn from "../auth/SignIn";
 import SignUp from "../auth/SignUp";
 import Header from "../header/Header";
-import NotFoundPage from "../pages/404/NotFoundPage";
+import { NotFoundPage } from "../pages/NotFoundPage";
 
 const { data } = JSON.parse(localStorage.getItem("auth")) || {};
 console.log("data: ", data);
