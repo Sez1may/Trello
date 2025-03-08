@@ -1,91 +1,121 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import styled from "styled-components";
-import { addList } from "../store/store";
 import List from "./List";
+import { addList } from "../store/store";
 
 const Board = () => {
   const lists = useSelector((state) => state.board.lists);
   const dispatch = useDispatch();
   const [listTitle, setListTitle] = useState("");
-  const [isAdd, setIsAdd] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleAddList = () => {
     if (listTitle.trim()) {
       dispatch(addList({ title: listTitle }));
       setListTitle("");
-      setIsAdd(false);
+      setIsAdding(false);
     }
   };
 
   return (
-    <Container>
+    <BoardContainer>
       {lists.map((list) => (
         <List key={list.id} list={list} />
       ))}
       <AddListContainer>
-        {isAdd ? (
+        {!isAdding ? (
+          <AddButton onClick={() => setIsAdding(true)}>
+            + Добавить список
+          </AddButton>
+        ) : (
           <>
-            <Input
+            <StyledInput
               type="text"
               value={listTitle}
               onChange={(e) => setListTitle(e.target.value)}
-              placeholder="Введите название списка"
+              placeholder="Название списка"
             />
-            <Button onClick={handleAddList}>Добавить</Button>
+            <ButtonRow>
+              <PrimaryButton onClick={handleAddList}>Добавить</PrimaryButton>
+              <CancelButton onClick={() => setIsAdding(false)}>
+                Отмена
+              </CancelButton>
+            </ButtonRow>
           </>
-        ) : (
-          <AddButton onClick={() => setIsAdd(true)}>
-            + Добавить колонку
-          </AddButton>
         )}
       </AddListContainer>
-    </Container>
+    </BoardContainer>
   );
 };
 
 export default Board;
 
-const Container = styled.div`
+const BoardContainer = styled.div`
   display: flex;
-  gap: 8px;
-  padding: 14px;
-  border-radius: 8px;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
 `;
 
 const AddListContainer = styled.div`
-  width: 300px;
-  height: auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 
-const Input = styled.input`
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+const StyledInput = styled.input`
+  padding: 14px;
+  border: 2px solid #dfe1e6;
+  border-radius: 8px;
   font-size: 16px;
+  transition: border 0.2s, box-shadow 0.2s;
+  width: 250px;
+
+  &:focus {
+    border: 2px solid #0079bf;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 121, 191, 0.3);
+  }
 `;
 
-const Button = styled.button`
-  background: #a71508;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
+const ButtonRow = styled.div`
+  display: flex;
+  gap: 8px;
 `;
 
 const AddButton = styled.button`
-  height: fit-content;
-  background: none;
+  background: #820e0e;
+  color: white;
   border: none;
-  color: black;
+  padding: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.1s;
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
+const PrimaryButton = styled(AddButton)`
+  background: #5aac44;
+  &:hover {
+    background: #498336;
+  }
+`;
+
+const CancelButton = styled.button`
+  background: gray;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #333;
+  }
 `;
