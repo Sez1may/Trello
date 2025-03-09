@@ -96,6 +96,7 @@ const List = ({ list }) => {
 
 export default List;
 const ListContainer = styled.div`
+  height: fit-content;
   background: #f9f9f9;
   padding: 15px;
   border-radius: 8px;
