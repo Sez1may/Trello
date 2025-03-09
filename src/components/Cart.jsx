@@ -14,8 +14,4 @@ const StyledDiv = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 13px;
-  &:hover {
-    background-color: #5a1c1c;
-    transform: translateY(-2px);
-  }
 `;
