@@ -114,7 +114,6 @@ const CancelButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   transition: color 0.2s;
-
   &:hover {
     color: #333;
   }

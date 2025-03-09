@@ -11,7 +11,9 @@ const Header = () => {
         <HeaderMenu />
         <HeaderProfile />
       </StyledHeader>
-      <Board />
+      <div>
+        <Board />
+      </div>
     </StyledDiv>
   );
 };
@@ -28,6 +30,10 @@ const StyledHeader = styled.header`
 `;
 
 const StyledDiv = styled.div`
+  div {
+    display: flex;
+    flex-wrap: wrap;
+  }
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;

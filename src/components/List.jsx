@@ -96,6 +96,8 @@ const List = ({ list }) => {
 
 export default List;
 const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   height: fit-content;
   background: #f9f9f9;
   padding: 15px;
@@ -104,9 +106,6 @@ const ListContainer = styled.div`
   max-width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.02);
-  }
 `;
 
 const Header = styled.div`
@@ -121,9 +120,6 @@ const Header = styled.div`
 const Title = styled.h2`
   cursor: pointer;
   font-size: 16px;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const MenuButton = styled.button`
@@ -134,6 +130,7 @@ const MenuButton = styled.button`
 
 const Menu = styled.div`
   position: absolute;
+  z-index: 2;
   top: 30px;
   right: 0;
   background: white;
@@ -144,6 +141,7 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.div`
+  width: 200px;
   padding: 10px;
   cursor: pointer;
   &:hover {
@@ -162,8 +160,8 @@ const Input = styled.input`
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px;
-  width: 100%;
+  font-size: 15px;
+  width: 59%;
   &:focus {
     border-color: #0079bf;
     outline: none;
@@ -195,6 +193,7 @@ const AddCardWrapper = styled.div`
 
 const AddCardContainer = styled.div`
   display: flex;
+
   align-items: center;
   gap: 8px;
   margin-top: 8px;
@@ -208,7 +207,4 @@ const AddCardButton = styled.button`
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
-  &:hover {
-    color: #172b4d;
-  }
 `;
