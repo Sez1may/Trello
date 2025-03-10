@@ -7,6 +7,7 @@ const Card = ({ card }) => {
 export default Card;
 
 const StyledDiv = styled.div`
+  margin-top: 8px;
   color: #fff;
   background-color: #841616;
   font-size: 18px;

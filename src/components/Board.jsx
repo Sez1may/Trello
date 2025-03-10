@@ -85,13 +85,15 @@ const ButtonRow = styled.div`
 `;
 
 const AddButton = styled.button`
+  width: 200px;
+  height: 50px;
   background: #820e0e;
   color: white;
   border: none;
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   transition: background 0.2s, transform 0.1s;
   &:active {
     transform: scale(0.98);
@@ -99,6 +101,7 @@ const AddButton = styled.button`
 `;
 
 const PrimaryButton = styled(AddButton)`
+  width: 160px;
   background: #5aac44;
   &:hover {
     background: #498336;

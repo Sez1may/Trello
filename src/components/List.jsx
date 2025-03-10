@@ -45,7 +45,7 @@ const List = ({ list }) => {
           <Title onClick={() => setIsEditingTitle(true)}>{list.title}</Title>
         )}
         <MenuButton onClick={() => setShowMenu(!showMenu)}>
-          <AiOutlineEllipsis size={20} />
+          <AiOutlineEllipsis size={25} />
         </MenuButton>
         {showMenu && (
           <Menu>
@@ -81,7 +81,7 @@ const List = ({ list }) => {
             />
             <Button onClick={handleAddCard}>Добавить</Button>
             <IconButton onClick={() => setIsAdding(false)}>
-              <TiDelete size={20} />
+              <TiDelete size={25} />
             </IconButton>
           </AddCardContainer>
         ) : (
@@ -200,6 +200,7 @@ const AddCardContainer = styled.div`
 `;
 
 const AddCardButton = styled.button`
+  margin-top: 10px;
   background: none;
   border: none;
   display: flex;

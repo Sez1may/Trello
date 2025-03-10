@@ -11,9 +11,9 @@ const Header = () => {
         <HeaderMenu />
         <HeaderProfile />
       </StyledHeader>
-      <div>
+      <section className="section">
         <Board />
-      </div>
+      </section>
     </StyledDiv>
   );
 };
@@ -30,9 +30,10 @@ const StyledHeader = styled.header`
 `;
 
 const StyledDiv = styled.div`
-  div {
-    display: flex;
-    flex-wrap: wrap;
+  .section {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
   }
   background-size: cover;
   background-repeat: no-repeat;
